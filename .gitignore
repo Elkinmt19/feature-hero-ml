@@ -63,6 +63,7 @@ srv_gen
 venv*
 venv.bak/
 ENV/
+.env
 
 # -------- VSCODE IGNORES ------
 .vscode
