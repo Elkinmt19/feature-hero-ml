@@ -6,8 +6,8 @@ name = "pypi"
 [packages]
 numpy = "*"
 pandas = "*"
-feast = "*"
 python-dotenv = "*"
+feast = {extras = ["redis"], version = "*"}
 
 [dev-packages]
 
