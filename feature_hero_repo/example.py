@@ -10,7 +10,7 @@ from feast.types import Float32, Int64
 # for more info.
 driver_hourly_stats = FileSource(
     name="driver_hourly_stats_source",
-    path="/Users/elkin.guerra/Documents/Documents Elkin Guerra/PRAGMA LEARNING/feature-hero-ml/feature_hero_repo/data/driver_stats.parquet",
+    path="/feature_hero_repo/offline_store/driver_stats.parquet",
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )

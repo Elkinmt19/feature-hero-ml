@@ -1,5 +1,10 @@
 project: feature_hero_repo
-registry: data/registry.db
 provider: local
+registry: 
+  path: registry/registry.db
+  cache_ttl_seconds: 5
 online_store:
-    path: data/online_store.db
+  type: redis
+  connection_string: "redis:6379,password=${ONLINE_STORE_PASSWORD}"
+offline_store:
+  type: file
