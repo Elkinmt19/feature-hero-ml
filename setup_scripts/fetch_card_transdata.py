@@ -11,7 +11,7 @@ from dotenv import (
 )
 
 # Own imports
-import get_path_dir as gpd
+from setup_scripts import get_path_dir as gpd
 
 logging.basicConfig(
     level=logging.INFO,
