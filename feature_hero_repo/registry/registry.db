@@ -1,26 +1,3 @@
-
-F
-&
-driver"	driver_idJfeature_hero_repo
-‰ºµ—àÁéè‰ºµ—àÁéè
-H
-(
-__dummy"
-__dummy_idJfeature_hero_repo
-‰ºµ—¨¼ãè‰ºµ— ôíè1"$bf874443-6b49-49f0-9cd6-c0225844ebfe*ıÇµ—Ø’²2Ú
-¢
-driver_hourly_statsfeature_hero_repodriver"
-	conv_rate"
-acc_rate"
-avg_daily_trips2€£:¦event_timestamp*createdZ75/feature_hero_repo/offline_store/driver_stats.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢driver_hourly_stats_source@b
-	driver_id3
-‰ºµ—˜ÈÅèıÇµ—ø”
-ü¤°—¸”ùÌûÇµ—:
-m
-driver_activityfeature_hero_repoG
-driver_hourly_stats
-	conv_rate
-acc_rate
-avg_daily_trips
-‰ºµ—øòè‰ºµ—øòèbºevent_timestamp*createdZ75/feature_hero_repo/offline_store/driver_stats.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢driver_hourly_stats_sourceªfeature_hero_repoz9
-feature_hero_repo$1a2bbbee-4c8a-4a5b-980e-a3f43c63a907
+version https://git-lfs.github.com/spec/v1
+oid sha256:35dfa80c53e9386dc1c4accec99864df2648f057fc8926b677a0174eea78fd08
+size 941
