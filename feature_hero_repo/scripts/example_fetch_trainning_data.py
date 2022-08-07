@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from feast import FeatureStore
-import get_path_dir as gpd
+from scripts import get_path_dir as gpd
 
 # The entity dataframe is the dataframe we want to enrich with feature values
 entity_df = pd.DataFrame.from_dict(

@@ -1,7 +1,7 @@
 from pprint import pprint
 from feast import FeatureStore
 
-import get_path_dir as gpd
+from scripts import get_path_dir as gpd
 
 store = FeatureStore(
     repo_path=gpd.get_desired_folder_path(".")
