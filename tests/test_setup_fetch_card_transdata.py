@@ -6,7 +6,12 @@ import unittest
 import pandas as pd
 
 # Own imports
-from setup_scripts import get_path_dir as gpd
+from setup_scripts import (
+    get_path_dir as gpd,
+    fetch_card_transdata as fct
+)
+
+_ = fct.pipeline()
 
 TRANSFORMED_FILE = os.path.join(
     gpd.get_desired_folder_path("feature_hero_repo"),
