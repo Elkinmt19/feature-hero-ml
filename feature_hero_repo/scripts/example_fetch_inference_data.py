@@ -1,7 +1,11 @@
 from pprint import pprint
 from feast import FeatureStore
 
-store = FeatureStore(repo_path=".")
+import get_path_dir as gpd
+
+store = FeatureStore(
+    repo_path=gpd.get_desired_folder_path(".")
+)
 
 feature_vector = store.get_online_features(
     features=[

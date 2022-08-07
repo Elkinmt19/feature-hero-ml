@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 from feast import FeatureStore
+import get_path_dir as gpd
 
 # The entity dataframe is the dataframe we want to enrich with feature values
 entity_df = pd.DataFrame.from_dict(
@@ -21,7 +22,9 @@ entity_df = pd.DataFrame.from_dict(
     }
 )
 
-store = FeatureStore(repo_path=".")
+store = FeatureStore(
+    repo_path=gpd.get_desired_folder_path(".")
+)
 
 training_df = store.get_historical_features(
     entity_df=entity_df,
