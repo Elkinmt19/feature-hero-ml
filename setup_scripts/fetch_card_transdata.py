@@ -56,6 +56,9 @@ def _transform_train_val(df:pd.DataFrame) -> pd.DataFrame:
     val.insert(0, 'event_timestamp', timestamp_column)
 
     df_transformed = pd.concat([train, val])
+    df_transformed["event_timestamp"] = pd.to_datetime(
+        df_transformed["event_timestamp"], utc=True
+    )
 
     return df_transformed
 
