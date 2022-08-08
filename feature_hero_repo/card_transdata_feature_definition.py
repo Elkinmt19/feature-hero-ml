@@ -23,6 +23,7 @@ user = Entity(name="user", join_keys=["user_id"])
 user_card_transactions_stats_view = FeatureView(
     name="user_card_transactions_stats",
     entities=[user],
+    ttl=timedelta(hours=1),
     schema=[
         Field(name="transaction_uuid", dtype=String),
         Field(name="distance_from_home", dtype=Float32),
