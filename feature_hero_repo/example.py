@@ -1,16 +1,21 @@
 # This is an example feature definition file
-
+import os
 from datetime import timedelta
 
 from feast import Entity, FeatureService, FeatureView, Field, FileSource
 from feast.types import Float32, Int64
+
+from scripts import get_path_dir as gpd
 
 # Read data from parquet files. Parquet is convenient for local development mode. For
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation
 # for more info.
 driver_hourly_stats = FileSource(
     name="driver_hourly_stats_source",
-    path="/feature_hero_repo/offline_store/driver_stats.parquet",
+    path=os.path.join(
+        gpd.get_desired_folder_path("offline_store"),
+        "driver_stats.parquet"
+    ),
     timestamp_field="event_timestamp",
     created_timestamp_column="created",
 )
