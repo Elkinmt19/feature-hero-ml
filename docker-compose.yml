@@ -6,8 +6,10 @@ services:
       dockerfile: Dockerfile
     environment:
       - ONLINE_STORE_PASSWORD=${REDIS_PASSWORD}
+      - USER_ID=${USER_ID}
     ports:
       - 8888:8888
+      - 6566:6566
     volumes:
       - ./feature_hero_repo:/feature_hero_repo
     depends_on:
