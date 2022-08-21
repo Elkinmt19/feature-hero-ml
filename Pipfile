@@ -9,9 +9,11 @@ pandas = "*"
 python-dotenv = "*"
 feast = {extras = ["redis"], version = "*"}
 pyarrow = "*"
+requests = "*"
 
 [dev-packages]
 pytest = "*"
+feature-hero-ml = {editable = true, path = "."}
 
 [requires]
 python_version = "3.8"
