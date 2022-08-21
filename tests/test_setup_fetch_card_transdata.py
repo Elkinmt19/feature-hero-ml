@@ -37,11 +37,11 @@ class TestSetupFetchCardTransdata(unittest.TestCase):
         df["day"] = df["event_timestamp"].apply(lambda x: x.day)
 
         self.assertEqual(
-            df["day"].value_counts()[7],
+            df["day"].value_counts()[19],
             699999
         )
         self.assertEqual(
-            df["day"].value_counts()[8],
+            df["day"].value_counts()[20],
             300001
         )
 
