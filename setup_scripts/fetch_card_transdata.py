@@ -33,29 +33,32 @@ def _transform_train_val(df:pd.DataFrame) -> pd.DataFrame:
     do_fraud_train = do_fraud.iloc[:int(do_fraud.shape[0]*0.7),:]
     do_fraud_val = do_fraud.iloc[int(do_fraud.shape[0]*0.7):,:]
 
-    train = pd.concat([non_fraud_train,do_fraud_train])
-    val = pd.concat([non_fraud_val,do_fraud_val])
+    train = pd.concat([non_fraud_train,do_fraud_train]).reset_index(drop=True)
+    val = pd.concat([non_fraud_val,do_fraud_val]).reset_index(drop=True)
 
     # Add the <event_timestamp> field based on the dataset
     logging.info("Adding the event_timestamp field")
 
     # Train dataset
-    train["event_timestamp"] = train["transaction_uuid"].apply(
-        lambda _:datetime.now()
+    train["event_timestamp"] = train.index.to_series().apply(
+        lambda x:datetime(2022,8,19) + \
+        timedelta(milliseconds=x)
     )
 
     timestamp_column = train.pop("event_timestamp")
     train.insert(0, 'event_timestamp', timestamp_column)
 
     # Validation dataset
-    val["event_timestamp"] = val["transaction_uuid"].apply(
-        lambda _:datetime.now() + timedelta(days=1)
+    val["event_timestamp"] = val.index.to_series().apply(
+        lambda x:datetime(2022,8,19) + \
+        timedelta(milliseconds=x) + \
+        timedelta(days=1)
     )
 
     timestamp_column = val.pop("event_timestamp")
     val.insert(0, 'event_timestamp', timestamp_column)
 
-    df_transformed = pd.concat([train, val])
+    df_transformed = pd.concat([train, val]).reset_index(drop=True)
     df_transformed["event_timestamp"] = pd.to_datetime(
         df_transformed["event_timestamp"], utc=True
     )
@@ -115,6 +118,7 @@ def _load(df:pd.DataFrame) -> int:
         compression=None,
         index=False
     )
+    logging.info("The loading task is completed")
 
     return 0
 
