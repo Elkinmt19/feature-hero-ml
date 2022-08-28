@@ -10,6 +10,7 @@ python-dotenv = "*"
 feast = {extras = ["redis"], version = "*"}
 pyarrow = "*"
 requests = "*"
+minio = "*"
 
 [dev-packages]
 pytest = "*"
