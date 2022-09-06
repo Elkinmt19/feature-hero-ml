@@ -1,21 +1,30 @@
 version: '3.8'
+x-feature-hero-common:
+  &feature-hero-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  environment:
+    ONLINE_STORE_PASSWORD: ${REDIS_PASSWORD}
+    USER_ID: ${USER_ID}
+    MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+    MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+  volumes:
+    - ./feature_hero_repo:/feature_hero_repo
+  depends_on:
+    - redis
+
 services:
-  feature_server:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      ONLINE_STORE_PASSWORD: ${REDIS_PASSWORD}
-      USER_ID: ${USER_ID}
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+  maintainer_server:
+    <<: *feature-hero-common
     ports:
       - 8888:8888
+    entrypoint: feast ui
+  feature_server:
+    <<: *feature-hero-common
+    ports:
       - 6566:6566
-    volumes:
-      - ./feature_hero_repo:/feature_hero_repo
-    depends_on:
-      - redis
+    entrypoint: feast serve
 
   redis:
     image: redis/redis-stack:latest
