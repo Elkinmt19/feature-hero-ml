@@ -12,10 +12,3 @@ RUN mkdir offline_store registry && \
 RUN pip install -U pip
 RUN pip install pipenv 
 RUN pipenv install --system --deploy
-
-EXPOSE 8888
-EXPOSE 6566
-
-RUN feast serve &
-
-ENTRYPOINT [ "feast","ui" ]
