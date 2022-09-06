@@ -15,6 +15,9 @@ minio = "*"
 [dev-packages]
 pytest = "*"
 feature-hero-ml = {editable = true, path = "."}
+pylint = "*"
+black = "*"
+isort = "*"
 
 [requires]
 python_version = "3.8"
