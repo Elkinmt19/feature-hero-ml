@@ -10,7 +10,8 @@ disable = [
     "import-error",
     "deprecated-method",
     "ungrouped-imports",
-    "duplicate-code"
+    "duplicate-code",
+    "assignment-from-no-return"
 ]
 
 [tool.black]

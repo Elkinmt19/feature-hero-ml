@@ -1,10 +1,7 @@
-# Built-in imports
 import os
 from datetime import timedelta
 
-# External imports
 from feast import Field, Entity, FileSource, FeatureView, FeatureService
-# Own imports
 from scripts import get_path_dir as gpd
 from feast.types import Int64, String, Float32
 

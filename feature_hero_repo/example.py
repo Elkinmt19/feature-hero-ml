@@ -1,4 +1,3 @@
-# This is an example feature definition file
 import os
 from datetime import timedelta
 

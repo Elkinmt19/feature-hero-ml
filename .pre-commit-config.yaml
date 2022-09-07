@@ -10,11 +10,19 @@ repos:
   hooks:
     - id: isort
       name: isort (python)
+      always_run: true
+      args: [
+        "."
+      ]
 - repo: https://github.com/psf/black
   rev: 22.6.0
   hooks:
     - id: black
       language_version: python3.8
+      always_run: true
+      args: [
+        "."
+      ]
 - repo: local
   hooks:
     - id: pylint
