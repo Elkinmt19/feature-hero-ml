@@ -24,7 +24,7 @@ services:
     <<: *feature-hero-common
     ports:
       - 6566:6566
-    entrypoint: feast serve
+    entrypoint: feast serve --host 0.0.0.0
 
   redis:
     image: redis/redis-stack:latest
