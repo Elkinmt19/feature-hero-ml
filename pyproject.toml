@@ -7,7 +7,9 @@ disable = [
     "missing-module-docstring",
     "invalid-name",
     "too-few-public-methods",
-    "import-error"
+    "import-error",
+    "deprecated-method",
+    "ungrouped-imports"
 ]
 
 [tool.black]

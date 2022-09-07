@@ -1,29 +1,25 @@
-# Built-in imports
 import os
 import logging
 
-# External imports
+import get_path_dir as gpd
 from minio import Minio
 from minio.error import S3Error
 
-# Own imports
-import get_path_dir as gpd
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(process)d-%(levelname)s-%(message)s'
-)
+logging.basicConfig(level=logging.INFO, format='%(process)d-%(levelname)s-%(message)s')
 
 BUCKET_NAME = "card-transaction-data"
 TRAIN_KEY = "training_card_transdata.parquet"
 VAL_KEY = "validation_card_transdata.parquet"
 
+
 def main():
+    # pylint: disable=logging-fstring-interpolation
+
     client = Minio(
         "minio:9000",
         access_key=os.environ.get('MINIO_ROOT_USER'),
         secret_key=os.environ.get('MINIO_ROOT_PASSWORD'),
-        secure=False
+        secure=False,
     )
 
     logging.info("Creating the bucket if not exists")
@@ -39,8 +35,8 @@ def main():
         f"{TRAIN_KEY}",
         os.path.join(
             gpd.get_desired_folder_path("offline_store"),
-            f"{TRAIN_KEY}"
-        )
+            f"{TRAIN_KEY}",
+        ),
     )
     logging.info(
         f"'{TRAIN_KEY}' is successfully uploaded as "
@@ -53,8 +49,8 @@ def main():
         f"{VAL_KEY}",
         os.path.join(
             gpd.get_desired_folder_path("offline_store"),
-            f"{VAL_KEY}"
-        )
+            f"{VAL_KEY}",
+        ),
     )
     logging.info(
         f"'{VAL_KEY}' is successfully uploaded as "

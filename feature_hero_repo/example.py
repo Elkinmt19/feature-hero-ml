@@ -2,10 +2,9 @@
 import os
 from datetime import timedelta
 
-from feast import Entity, FeatureService, FeatureView, Field, FileSource
-from feast.types import Float32, Int64
-
+from feast import Field, Entity, FileSource, FeatureView, FeatureService
 from scripts import get_path_dir as gpd
+from feast.types import Int64, Float32
 
 # Read data from parquet files. Parquet is convenient for local development mode. For
 # production, you can use your favorite DWH, such as BigQuery. See Feast documentation
@@ -13,8 +12,7 @@ from scripts import get_path_dir as gpd
 driver_hourly_stats = FileSource(
     name="driver_hourly_stats_source",
     path=os.path.join(
-        gpd.get_desired_folder_path("offline_store"),
-        "driver_stats.parquet"
+        gpd.get_desired_folder_path("offline_store"), "driver_stats.parquet"
     ),
     timestamp_field="event_timestamp",
     created_timestamp_column="created",

@@ -1,18 +1,16 @@
 from datetime import datetime, timedelta
-import pandas as pd
 
-from feast import FeatureStore
+import pandas as pd
 import get_path_dir as gpd
+from feast import FeatureStore
 
 # The entity dataframe is the dataframe we want to enrich with feature values
 entity_df = pd.DataFrame.from_dict(
     {
         # entity's join key -> entity values
         "driver_id": [1001, 1002, 1003],
-
         # label name -> label values
         "label_driver_reported_satisfaction": [1, 5, 3],
-
         # "event_timestamp" (reserved key) -> timestamps
         "event_timestamp": [
             datetime.now() - timedelta(minutes=11),
@@ -22,9 +20,7 @@ entity_df = pd.DataFrame.from_dict(
     }
 )
 
-store = FeatureStore(
-    repo_path=gpd.get_desired_folder_path(".")
-)
+store = FeatureStore(repo_path=gpd.get_desired_folder_path("."))
 
 training_df = store.get_historical_features(
     entity_df=entity_df,
