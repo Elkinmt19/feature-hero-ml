@@ -23,12 +23,12 @@ repos:
       language: system
       types: [python]
       args: [
+        "feature_hero_repo/",
+        "setup_scripts/",
+        "setup.py",
         "-rn", # Only display messages
         "-sn", # Don't display the score
         "--recursive=y",
-        "feature_hero_repo/",
-        "setup_scripts/",
-        "setup.py"
       ]
 - repo: local
   hooks:
