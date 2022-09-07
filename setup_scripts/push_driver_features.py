@@ -1,7 +1,7 @@
 import json
-import requests
-import pandas as pd
 from datetime import datetime
+
+import requests
 
 event_dict = {
     "driver_id": [1001],
@@ -13,13 +13,14 @@ event_dict = {
     "string_feature": "test2",
 }
 push_data = {
-    "push_source_name":"driver_stats_push_source",
-    "df":event_dict,
-    "to":"online",
+    "push_source_name": "driver_stats_push_source",
+    "df": event_dict,
+    "to": "online",
 }
 response = requests.post(
     "http://localhost:6566/push",
     data=json.dumps(push_data),
+    timeout=10,
 )
 
 print(f"Status Code: {response.status_code}")
