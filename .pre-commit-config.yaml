@@ -22,6 +22,7 @@ repos:
       entry: pylint
       language: system
       types: [python]
+      always_run: false
       args: [
         "feature_hero_repo/",
         "setup_scripts/",

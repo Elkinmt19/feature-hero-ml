@@ -9,7 +9,8 @@ disable = [
     "too-few-public-methods",
     "import-error",
     "deprecated-method",
-    "ungrouped-imports"
+    "ungrouped-imports",
+    "duplicate-code"
 ]
 
 [tool.black]
